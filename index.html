@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -34,38 +35,36 @@
   <!-- Bloque de FB -->
 
   <header>
-    <a class="logo" href="#">
+    <a id="logo" href="#">
       <img src="img/logo.svg" alt="">
     </a>
-    <div>
+    <div class="form-consulta">
       <form action="" class="form-inline">
         <div class="form-group">
-          <label for="staticEmail2">Consulta Pedido</label>
+          <label for="staticEmail2">Consulta tu pedido</label>
           <input type="text" class="form-control" id="staticEmail2" placeholder="52645" required="">
           <button class="btn pull-right btn-primary">Enviar</button>
         </div>
       </form>
     </div>
+    <div class="btn d-block d-sm-none btn-primary" data-toggle="modal" data-target="#ModalEstado">Consulta tu pedido</div>
   </header>
 
   <main>
-    <div>
+    <div class="columna-izq">
       <div class="fb-share-button" data-href="https://dinsen.cl/landing" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdinsen.cl%2Flanding&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>
-      <h3>COMPRA AQUÍ</h3>
+      <h3>REGALA SEGURIDAD Y TRANQUILIDAD</h3>
       <h1>Gata hidráulica<br>eléctrica <span>3 en 1</span></h1>
-      <p class="lead">Gata hidráulica eléctrica + Llave de impacto eléctrica + Bomba de inflado</p>
-      <div class="text-center">
-        <a href="#" class="btn btn-md btn-ficha">Descargar Ficha Técnica <i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i></a>
-      </div>
-      <div class="text-center">
+      <p class="lead">El regalo ideal para alguien que tiene auto.<br><strong>Incluye gata hidráulica eléctrica, Llave de impacto eléctrica y Bomba de inflado.</strong></p>
+      <div class="text-left">
         <div class="valor">
           <div class="oferta wow pulse" data-wow-delay="17300ms" data-wow-duration="500ms" data-wow-iteration="infinite">SUPER OFERTA</div>
-          <div class="monto">$999.990</div>
+          <div class="precio-anterior">Antes: $577.895</div>
+          <div class="ahora">Ahora</div>
+          <div class="monto">$444.444</div>
           <div class="iva">IVA Incluido</div>
         </div>
       </div>
-      
-      
       <form class="cantidad">
         <div class="row">
           <div class="col-6 col-sm-3 col-lg-3">
@@ -96,7 +95,9 @@
         </div>
       </div>
     </div>
+
     <div class="colum-der">
+      <a target="_blank" href="img/ficha-tecnica-dinsen.pdf" class="btn btn-md btn-ficha">Descargar Ficha Técnica<i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i></a>
       <div id="video" class="owl-one owl-carousel owl-theme">
         <div class="item"><video src="img/video.mp4" controls autoplay muted loop></video></div>
         <div class="item"><img src="img/g-img-prod.png" alt=""></div>
@@ -106,21 +107,106 @@
         <div class="item"><img src="img/g-img-prod-05.png" alt=""></div>
         <div class="item"><img src="img/g-img-prod-06.png" alt=""></div>
       </div>
+      <div class="mayorista">Para compras mayoristas contactar a <a href="mailto:ventas@dinsen.cl">ventas@dinsen.cl</a></div>
     </div>
   </main>
 
   <footer class="wow fadeIn" data-wow-duration="1500ms">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-6 col-sm-8">
-          © 2022 Dinsen Chile. Todos los derechos reservados.
+        <div class="col-lg-6 col-sm-8 col-xs-12">
+          <p><strong>© 2022 Dinsen Chile.</strong> Todos los derechos reservados.</p>
         </div>
-        <div class="col-lg-6 col-sm-4 text-right sitio-seguro">
-          SITIO SEGURO
+        <div class="col-lg-6 col-sm-4 col-xs-12 text-right sitio-seguro">
+          <i class="fa fa-shield fa-lg"></i>SITIO SEGURO
         </div>
       </div>
     </div>
   </footer>
+
+  <!-- Modal Carro de compra -->
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Carro de compra</h4>
+        </div>
+        <div class="modal-body">
+          <p>Complete los siguientes datos si está interesado en realizar una compra:</p>
+          <form class="venta" action="" method="post">
+            <div class="row">
+              <div class="col-6">
+                <label for="">Nombre y apellido</label>
+                <input type="text" name="" value="" class="form-control" placeholder="" required="">
+              </div>
+              <div class="col-6">
+                <label for="">Correo</label>
+                <input type="email" name="" value="" class="form-control" placeholder="" required="">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <label for="">Teléfono</label>
+                <input type="text" name="" value="" class="form-control" placeholder="+569 5555 55 55" required="">
+              </div>
+              <div class="col-6">
+                <label for="">Cantidad</label>
+                <input type="number" name="" value="" class="form-control" placeholder="00" required="" max="10" min="0">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <label for="">Tipo de Documento</label>
+                <select class="form-control" name="" placeholder="Seleccione">
+                  <option value="">Boleta</option>
+                  <option value="">Factura</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label for="">Forma de pago</label>
+                <select class="form-control" name="" disabled="">
+                  <option value="">Flow</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <strong>Total: $999.990</strong>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-pagar btn-block" name="button">Ir a Pagar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Modal Carro de compra -->
+
+    <!-- Modal Estado de tu pedido para smartphone -->
+
+    <div class="modal fade" id="ModalEstado" tabindex="-1" aria-labelledby="ModalEstadoLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="ModalEstadoLabel">Consultar estado</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Ingresa el número de tú pedido.</p>
+            <form action="">
+              <input type="text" class="form-control" id="staticEmail2" placeholder="52645" required>
+              <button class="btn pull-right btn-primary">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Estado de tu pedido para smartphone -->
 
   <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
@@ -129,7 +215,6 @@
   <script>
     $(document).ready(function(){
         new WOW().init();
-
         $('.owl-one').owlCarousel({
           loop:true,
           margin:30,
@@ -147,7 +232,6 @@
             }
           }
         });
-
         $('.owl-two').owlCarousel({
           loop:true,
           margin: 30,
@@ -172,7 +256,9 @@
             }
           }
         });
-
+        $( "#logo" ).click(function() {
+          event.preventDefault()
+        });
       });
   </script>
 </body>

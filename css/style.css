@@ -4,17 +4,14 @@
   font-family: 'OpenSans-Bold';
   src: url(../fonts/OpenSans-Bold.ttf);
 }
-
 @font-face {
   font-family: 'OpenSans-ExtraBold';
   src: url(../fonts/OpenSans-ExtraBold.ttf);
 }
-
 @font-face {
   font-family: 'OpenSans-Light';
   src: url(../fonts/OpenSans-Light.ttf);
 }
-
 @font-face {
   font-family: 'OpenSans-Medium';
   src: url(../fonts/OpenSans-Medium.ttf);
@@ -23,9 +20,10 @@ body{
   padding: 0;
   margin: 0;
   font-family: 'Open Sans', sans-serif;
-  background-image: url(../img/fondo.gif);
-  background-size: auto;
+  background-image: url(../img/fondo.png);
+  background-size: 400px;
   background-repeat: no-repeat;
+  background-position: 105% 45%;
 }
 a{
   transition: 0.5s ease;
@@ -52,14 +50,25 @@ header{
   padding-top: 15px;
   border-bottom: solid 1px #eaeaea;
 }
-header a.logo{
+header a#logo{
   display: flex;
+  position: relative;
 }
-header a.logo img{
+header #logo::after{
+  content: '';
+  left: 190px;
+  width: 50px;
+  height: 50px;
+  top: -12px;
+  background-image: url(../img/arbol-navidad.png);
+  background-size: cover;
+  position: absolute;
+}
+header a#logo img{
   width: 180px;
 }
 header form {
-  color: #ccc;
+  color: #a5a5a5;
 }
 header form label{
   margin-right: 10px;
@@ -101,10 +110,14 @@ main{
 
 /* Columna Izquierda */
 
+main .columna-izq{
+  padding-right: 100px;
+}
+
 main h3{
   font-weight: bold;
-  margin-top: 10px;
-  font-size: 21px;
+  margin-top: 20px;
+  font-size: 16px;
   display: block;
   width: 100%;
   margin-bottom: 0px;
@@ -124,6 +137,15 @@ main p.lead{
   font-size: 1.1rem;
   font-weight: 300;
   width: 400px;
+}
+main .precio-anterior{
+  font-size: 1.4rem;
+  text-decoration:line-through;
+  color: #aa1313;
+}
+main .ahora{
+  text-align: left;
+  color: #52a314;
 }
 main .btn-ficha {
   background: #fff;
@@ -145,6 +167,8 @@ main .btn-ficha:hover, .btn-ficha:focus, .btn-ficha:active {
 }
 main .valor{
   display: block;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 main .oferta{
   background: rgb(0,0,0);
@@ -162,9 +186,11 @@ main .monto{
   color: #ff7840;
   font-size: 2.5em;
   font-weight: lighter;
+  margin-top: -10px;
+  color: #52a314;
 }
 main .iva{
-  color: #ff7840;
+  color: #52a314;
   margin-left: 5px;
   margin-top: -5px;
   font-weight: 600;
@@ -174,10 +200,13 @@ p.paga{
   font-size: .9em;
 }
 .infox{
-  margin-right: 100px;
+  margin-right: 0px;
 }
-main .text-center{
-  margin-right: 100px;
+main .text-left{
+  margin-left: 80px;
+}
+main p.lead{
+  margin-bottom: 0;
 }
 
 /* Columna Izquierda */
@@ -191,7 +220,6 @@ main .colum-der{
 }
 
 main .owl-one .item{
-  margin: 2em auto;
   overflow: hidden;
   padding: 20px;
   border-radius: 20px;
@@ -203,6 +231,22 @@ main video{
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
   border-radius: 25px;
+}
+main #video{
+  position: relative;
+  z-index: 1;
+}
+main #video::before{
+  content: "";
+  position: absolute;
+  left:-12%;
+  top: 0;
+  bottom: 0;
+  z-index: 9999;
+  background-image: url(../img/santa.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 300px;
 }
 main  .owl-one img{
   border-radius: 20px;
@@ -219,10 +263,10 @@ form.cantidad{
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
-  margin-top: 20px;
-  margin-bottom: 40px;
+  margin-top: 0px;
+  margin-bottom: 30px;
   margin-left: 0px;
-  margin-right: 100px;
+  margin-right: 0px;
 }
 form.cantidad label{
   margin-right: 15px;
@@ -235,7 +279,7 @@ form.cantidad input.form-control{
   height: 50px!important;
   max-width: 70px !important;
 }
-form .btn-submit{
+form.cantidad .btn-submit{
   background: #f8753f;
   color: #FFF;
   border: solid 2px #d16234;
@@ -245,13 +289,14 @@ form .btn-submit{
   -webkit-border-radius: 55px;
   -moz-border-radius: 55px;
   border-radius: 55px;
+  padding-top: 4px !important;
 }
-form .btn-submit:hover{
+form.cantidad .btn-submit:hover{
   background: #d16234;
   color: #FFF;
   border: solid 2px #d16234;
 }
-form .btn-submit i{
+form.cantidad .btn-submit i{
   background: #fff;
   color: #f8753f;
   -webkit-border-radius: 35px;
@@ -260,12 +305,27 @@ form .btn-submit i{
   height: 35px;
   width: 35px;
   position: absolute;
-  top: 6px;
+  top: 3.5px;
   right: 9px;
   line-height: 35px;
 }
 .owl-theme .owl-nav.disabled + .owl-dots{
   margin-top: 0;
+}
+.colum-der .btn-ficha{
+  display: inline-block;
+  width: 230px;
+  margin: auto;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+.mayorista {
+  text-align: center;
+  font-size: 1.2em;
+  margin-top: 55px;
+}
+.mayorista a {
+  color: #ff7840;
 }
 
 /* Columna Derecha */
@@ -280,14 +340,202 @@ footer{
   padding-top: 20px;
   font-size: .9em;
 }
-
 footer .sitio-seguro {
-  color: #52a314;
+  color: #999;
   font-weight: 600;
 }
-
-footer .sitio-seguro img{
-  width: 25px;
+footer .sitio-seguro i{
+  color: #52a314;
+  margin-right: 10px;
 }
 
 /* Footer */
+
+/* Modal Carro */
+
+.modal-title {
+  font-weight: 800;
+}
+
+.modal-header {
+  padding: 1em 2em;
+}
+
+.modal-body {
+  padding: 1em 2em;
+}
+
+.modal-body strong {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #348560;
+  font-size: 1.4em;
+  margin: 20px 0px;
+  margin-top: 15px;
+}
+
+.btn-pagar {
+  background: #21f484;
+  color: #348560;
+  font-weight: 700;
+}
+
+.btn-pagar:hover {
+  background: #00d463;
+  color: #FFF;
+}
+
+/* Modal Carro */
+
+/* Gracias */
+
+section.gracias .card{
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+section.gracias{
+  margin-bottom: 20px;
+  padding: 2em 4em;
+}
+
+.gracias .list-group-item strong {
+  float: right;
+}
+
+.gracias .card-body {
+  padding: 0;
+}
+
+.gracias {
+  padding-top: 80px;
+}
+
+.gracias h3 {
+  padding-bottom: 10px;
+  font-size: 1.4em;
+}
+.gracias .btn-submit{
+  background: #f8753f;
+  color: #FFF;
+  border: solid 2px #d16234;
+  position: relative;
+  -webkit-border-radius: 55px;
+  -moz-border-radius: 55px;
+  border-radius: 55px;
+}
+.gracias .btn-submit:hover{
+  background: #d16234;
+  color: #FFF;
+  border: solid 2px #d16234;
+}
+
+footer p{
+  margin: 0;
+  padding: 0;
+}
+
+/* Gracias */
+
+/* Media Queries Tablet 1024 */
+
+@media (max-width: 1024px) {
+  main{
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 35px;
+    padding-bottom: 35px;
+  }
+  main .columna-izq {
+    padding-right: 20px;
+  }
+  form.cantidad{
+    padding: 14px 20px;
+  }
+}
+
+/* Media Queries Tablet 1024 */
+
+/* Media Queries Tablet 768 */
+
+@media (max-width: 768px) {
+  body{
+    background-position: 116% 82%;
+  }
+  header{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  main{
+    grid-template-columns: 100%;
+  }
+  main .columna-izq{
+    text-align: center;
+  }
+  main p.lead{
+    margin-left: auto;
+    margin-right: auto;
+  }
+  main .text-left{
+    margin-left: 0;
+    text-align: center !important;
+  }
+  form.cantidad, .infox{
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+  }
+  .mayorista{
+    margin-top: 10px;
+  }
+  .owl-carousel{
+    width: 90%;
+    margin: auto;
+  }
+  main .ahora{
+    text-align: center;
+  }
+}
+
+/* Media Queries Tablet 768 */
+
+/* Media Queries Smartphone 700 */
+
+@media (max-width: 700px) {
+  body{
+    background-image: none;
+  }
+  .infox, .cantidad, header .form-consulta{
+    display: none !important;
+  }
+  header{
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  main{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  footer{
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  footer .text-right.sitio-seguro{
+    text-align: center !important;
+  } 
+  footer p{
+    margin-bottom: 10px;
+  }
+  #ModalEstado form input{
+    margin-bottom: 20px;
+  }
+  #ModalEstado form .btn-primary{
+    display: block;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
